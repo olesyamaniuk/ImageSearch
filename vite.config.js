@@ -63,14 +63,11 @@
 // });
 
 
-
-
-
 import { defineConfig } from 'vite';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 import react from '@vitejs/plugin-react-swc';
-import path from 'path';
+import path from 'path'; // Ensure this line is present
 
 export default defineConfig(({ command }) => {
   return {
@@ -91,11 +88,8 @@ export default defineConfig(({ command }) => {
           entryFileNames: 'commonHelpers.js',
         },
       },
-      outDir: 'dist',
+      outDir: '../dist',
     },
     plugins: [react(), injectHTML(), FullReload(['./src/**/**.html'])],
   };
 });
-
-
-
