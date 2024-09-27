@@ -99,14 +99,23 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 
+// export default defineConfig({
+//   root: './src', // ensure this matches your project structure
+//   build: {
+//     rollupOptions: {
+//       input: path.resolve(__dirname, './src/index.html') // update path if needed
+//     },
+//     outDir: '../dist', // or place it inside the project root to avoid the warning
+//   emptyOutDir: true,  // This will automatically clean the dist folder
+//   },
+//   plugins: [react()]
+// });
+
 export default defineConfig({
-  root: './src', // ensure this matches your project structure
+  base: './', // or '/subfolder/' if needed
   build: {
-    rollupOptions: {
-      input: path.resolve(__dirname, './src/index.html') // update path if needed
-    },
-    outDir: '../dist', // or place it inside the project root to avoid the warning
-  emptyOutDir: true,  // This will automatically clean the dist folder
+    outDir: '../dist', // Ensure paths are correct
+    emptyOutDir: true,
   },
   plugins: [react()]
 });
