@@ -1,183 +1,235 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-@import url('./reset.css');
-
-
-section {
-width: 1440px;
-margin: 0 auto;
+/* ============== COMMON STYLES ============== */
+html,
+body {
+  scroll-behavior: smooth;
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+button {
+  cursor: pointer;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #ffffff;
+  color: #434455;
+}
+/* ============== /COMMON STYLES ============== */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px auto;
 }
 .main-form {
   display: flex;
-  gap: 8px;
-
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 32px;
-  position: relative;
+  gap: 10px;
 }
 .input-text {
   background: #fff;
   padding-left: 14px;
+  padding-top: 2px;
   width: 272px;
-  border: 1px solid #808080;
-  border-radius: 4px;
+  border: 1px solid #f77307;
   outline-offset: 4px;
   outline-color: transparent;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
 }
+.input-text:focus,
 .input-text:hover {
-  border: 1px solid #000;
+  border: 3px solid #f77307;
 }
-
-.input-text:focus {
-  border: 1px solid #3522e4;
-}
-
 .btn {
-  background: #3522e4;
-  border-radius: 8px;
+  background: #f77307;
   padding: 8px 16px;
-  width: 75px;
+  width: 100px;
   border-color: transparent;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
   line-height: 1.5;
   letter-spacing: 0.04em;
   color: #fff;
- 
 }
-.btn:hover {
-  background: #3522e4;
+.btn:hover,
+.btn:focus {
+  color: #000;
 }
 .input-text::placeholder {
-    font-weight: 400;
-font-size: 16px;
-line-height: 150%;
-letter-spacing: 0.04em;
-color: #808080;
-
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #808080;
 }
-
-
-
-
 .photo-main-list {
   border: 1px solid #808080;
   border-radius: 0px 0px 7px 7px;
+  box-shadow: 0, 4px, 8px, #0000001a;
 }
 .todo-list {
-    display: flex;
-    flex-direction: row;
-    gap: 24px;
-    flex-wrap: wrap;
-    row-gap: 24px;
-    margin-top: 60px;
-  
+  margin: 25px auto 15px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 .photo-main-list {
-    max-width: 360px;
-    width: calc((100% - 48px) / 5);;
+  max-width: 360px;
+  width: 360px;
 }
-
-.list-menu  {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 5px;
-  
+.list-menu {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
 }
-
 .title {
-    font-weight: 600;
-font-size: 12px;
-line-height: 1.33;;
-letter-spacing: 0.04em;
-color: #2e2f42;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
 }
 .datas {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 200%;
-    letter-spacing: 0.04em;
-    color: #2e2f42;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 200%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
 }
-
-.photo{
-    width: 360px;
-    height: 200px;
-
+.photo {
+  width: 360px;
+  height: 200px;
 }
 .description {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+/* .section {
+  height: 100vh;
+} */
 .loader {
   width: 48px;
   height: 48px;
-  border: 3px dotted #FFF;
-  border-style: solid solid dotted dotted;
-  border-radius: 50%;
-  display: inline-block;
+  position: absolute;
+  /* left: 45%; */
+  display: none;
+  /* display: inline-block; */
   position: relative;
-  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  position: relative;
   right: 50%;
   left: 50%;
-  animation: rotation 2s linear infinite;
-}
-.loader::after {
-  content: '';  
-  box-sizing: border-box;
-  position: absolute;
-  left: 0;
-  right: 0;
   top: 0;
-  bottom: 0;
-  margin: auto;
-  border: 3px dotted #3522e4;
-  border-style: solid solid dotted;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  animation: rotationBack 1s linear infinite;
-  transform-origin: center center;
+  /* left: 0; */
 }
-    /*------------------------------  */
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
+.loader:before {
+  content: '';
+  width: 48px;
+  height: 5px;
+  background: #000;
+  opacity: 0.25;
+  position: absolute;
+  top: 65px;
+  left: 0;
+  border-radius: 50%;
+  animation: shadow 0.5s linear infinite;
+}
+
+.loader:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #f77307;
+  animation: bxSpin 0.5s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+}
+@keyframes bxSpin {
+  17% {
+    border-bottom-right-radius: 3px;
+  }
+  25% {
+    transform: translateY(9px) rotate(22.5deg);
+  }
+  50% {
+    transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+    border-bottom-right-radius: 40px;
+  }
+  75% {
+    transform: translateY(9px) rotate(67.5deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: translateY(0) rotate(90deg);
   }
-} 
-@keyframes rotationBack {
-  0% {
-    transform: rotate(0deg);
-  }
+}
+
+@keyframes shadow {
+  0%,
   100% {
-    transform: rotate(-360deg);
+    transform: scale(1, 1);
   }
-} 
+  50% {
+    transform: scale(1.2, 1);
+  }
+}
+
 /* ------------------------------------------ */
 
-.btn-add{
+.btn-add {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  background: #4e75ff;
-  border-radius: 8px;
+  background: #f77307;
   padding: 8px 16px;
   width: 150px;
   border-color: transparent;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.04em;
   color: #fff;
+  margin-top: 35px;
+  margin-bottom: 40px;
+}
+.btn-add:hover,
+.btn-add:focus {
+  color: #000;
 }
 
 .is-hidden {

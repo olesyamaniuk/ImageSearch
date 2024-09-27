@@ -2,40 +2,47 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/assets/images-interface-symbol-svgrepo-com.svg"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>hw12</title>
+    <title>Image Search</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <section>
-    
+    <section class="section">
+      <div class="container">
+        <form class="main-form">
+          <input
+            class="input-text"
+            type="text"
+            required
+            placeholder="Search images..."
+          />
+          <button class="btn">Start</button>
+        </form>
+      </div>
 
-      <form class="main-form">
-      <input class="input-text" type="text" required placeholder="Search images..."/>
-      <button class="btn" >Start</button>
-     
-    </form>
+      <span id="loader" class="loader"></span>
 
-    <span class="loader" ></span>
+      <ul class="todo-list container"></ul>
+    </section>
 
-      <ul class="todo-list">
-    
-      </ul>
-  </section>
+    <button
+      type="button"
+      class="btn-add btn-primary button is-hidden"
+      data-action="load-more"
+    >
+      <span
+        class="loader spinner-border spinner-border-sm spinner is-hidden"
+        role="status"
+        aria-hidden="true"
+      ></span>
 
-  <button
-  type="button"
-  class="btn-add btn-primary button is-hidden"
-  data-action="load-more">
-  <span
-    class="spinner-border spinner-border-sm spinner is-hidden"
-    role="status"
-    aria-hidden="true"
-  ></span>
-
-  <span class="label">Load more</span>
-</button>
+      <span class="label">Load more</span>
+    </button>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
