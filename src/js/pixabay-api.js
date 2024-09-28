@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 const KEY = '42676723-0286cb816b5743467714b50d3';
@@ -10,7 +9,7 @@ const SAFESEARCH = 'true';
 export default async function  getImages(query, amount, page){
     const QUERY = query.trim();
     const LINK = `${BASE_URI}?key=${KEY}&q=${QUERY}&image_type=${IMAGE_TYPE}&orientation=${ORIENTATION}&safesearch=${SAFESEARCH}&per_page=${amount}&page=${page}`;
-        
+
     try {
         const response = await axios.get(LINK);
         if (response.status !== 200 ) {

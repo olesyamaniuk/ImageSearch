@@ -135,26 +135,45 @@ body {
   justify-content: center;
   align-items: center;
 }
+.btn-add {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: #f77307;
+  padding: 8px 16px;
+  width: 150px;
+  border-color: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin-top: 35px;
+  margin-bottom: 40px;
+}
+.btn-add:hover,
+.btn-add:focus,
+.btn-add:active {
+  color: #000;
+}
+.is-hidden {
+  display: none;
+}
 
-/* .section {
-  height: 100vh;
-} */
+/* ============== LOADER STYLES ============== */
 .loader {
   width: 48px;
   height: 48px;
   position: absolute;
-  /* left: 45%; */
   display: none;
-  /* display: inline-block; */
   position: relative;
   width: 48px;
   height: 48px;
   margin: auto;
   position: relative;
-  right: 50%;
-  left: 50%;
+  right: 51%;
+  left: 49%;
   top: 0;
-  /* left: 0; */
 }
 .loader:before {
   content: '';
@@ -168,7 +187,6 @@ body {
   border-radius: 50%;
   animation: shadow 0.5s linear infinite;
 }
-
 .loader:after {
   content: '';
   width: 100%;
@@ -198,7 +216,6 @@ body {
     transform: translateY(0) rotate(90deg);
   }
 }
-
 @keyframes shadow {
   0%,
   100% {
@@ -208,53 +225,4 @@ body {
     transform: scale(1.2, 1);
   }
 }
-
-/* ------------------------------------------ */
-
-.btn-add {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  background: #f77307;
-  padding: 8px 16px;
-  width: 150px;
-  border-color: transparent;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  color: #fff;
-  margin-top: 35px;
-  margin-bottom: 40px;
-}
-.btn-add:hover,
-.btn-add:focus {
-  color: #000;
-}
-
-.is-hidden {
-  display: none;
-}
-.load-btn {
-  border-radius: 8px;
-  padding: 8px 16px;
-  width: 125px;
-  background: #4e75ff;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  color: #fff;
-  border-color: transparent;
-  outline-offset: 4px;
-  margin-top: 32px;
-
-  transition: background 300ms ease-in-out;
-}
-
-.load-btn:hover {
-  background: #6c8cff;
-}
-.btn-container {
-  display: flex;
-  justify-content: center;
-}
+/* ============== /LOADER STYLES ============== */

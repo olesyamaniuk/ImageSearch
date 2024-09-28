@@ -14,6 +14,7 @@ const load = document.querySelector('.loader');
 
 const loadMoreBtn = document.querySelector('[data-action="load-more"]');
 
+const perPage = 40;
 let currentPage = 1;
 let currentQuery;
 
@@ -21,7 +22,8 @@ load.style.display = 'none';
 
 const lightbox = new SimpleLightbox('.todo-list a.galery-link', {
     captionsData: 'alt',
-    captionDelay: 500,
+    // captionDelay: 500,
+    // download : true,
 });
 
 form.addEventListener('submit', async function handler(event) {
@@ -29,53 +31,45 @@ form.addEventListener('submit', async function handler(event) {
     const query = input.value;
     list.innerHTML = '';
     input.value = '';
-    loadMoreBtn.style.display = 'none';//
+    loadMoreBtn.style.display = 'none';
+    load.style.display = 'inline-block';
     try {
-        const data = await getImages( query, 15, 1);
-        if( data.hits.length === 0){
+        const data = await getImages(query, perPage, 1);
+        if (data.hits.length === 0) {
             list.innerHTML = '';
             load.style.display = 'none';
             loadMoreBtn.classList.add('is-hidden');
             return iziToast.error({
-                      message: `Sorry, there are no images matching your search query. Please try again!`,
-                      position: 'topCenter',  
-                  });
-            // loadMoreBtn.style.display = 'none';
-        }
-        else{
+                message: `Sorry, there are no images matching your search query. Please try again!`,
+                position: 'topCenter',
+            });
+        } else {
             createMarkup(data.hits);
             lightbox.refresh();
             currentQuery = query;
             currentPage = 1;
             load.style.display = 'none';
-            if(data.hits.length < 15 ){
-                // loadMoreBtn.style.display = 'none';
+            if (data.hits.length < perPage) {
                 handlerErrorResult();
-            }
-            else{
+            } else {
                 loadMoreBtn.style.display = 'block';
             }
         }
-    }
-    catch(error){
+    } catch (error) {
         console.error(error);
+        load.style.display = 'none';
     }
 });
-
-
 loadMoreBtn.addEventListener('click', async function loadImages(event) {
   event.preventDefault();
   list.insertAdjacentElement('afterend', load);
   load.style.display = 'inline-block';
   currentPage++;
-
   try {
-      const data = await getImages(currentQuery, 15, currentPage);
-
+      const data = await getImages(currentQuery, perPage, currentPage);
       if (data.hits.length === 0) {
           loadMoreBtn.style.display = 'none';
           return handlerErrorResult();
-          
       } else {
           createMarkup(data.hits);
           lightbox.refresh();
@@ -84,11 +78,10 @@ loadMoreBtn.addEventListener('click', async function loadImages(event) {
 
           const rect = boxFotos.getBoundingClientRect().height;
           window.scrollBy({
-              top: rect * 2,
+              top: 600,
               behavior: "smooth",
           });
-
-          if (data.hits.length < 15) {
+          if (data.hits.length < perPage) {
               loadMoreBtn.style.display = 'none';
               handlerErrorResult();
           } else {

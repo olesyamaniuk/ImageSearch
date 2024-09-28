@@ -8,24 +8,24 @@
       href="/img/images-interface-symbol-svgrepo-com.svg"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>hw12</title>
+    <title>Image Search</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
     <section>
-      <form class="main-form">
-        <input
-          class="input-text"
-          type="text"
-          required
-          placeholder="Search images..."
-        />
-        <button class="btn">Start</button>
-      </form>
-
+      <div class="container">
+        <form class="main-form">
+          <input
+            class="input-text"
+            type="text"
+            required
+            placeholder="Search images..."
+          />
+          <button class="btn" type="submit">Start</button>
+        </form>
+      </div>
       <span class="loader"></span>
-
-      <ul class="todo-list"></ul>
+      <ul class="todo-list container"></ul>
     </section>
 
     <button
@@ -33,12 +33,6 @@
       class="btn-add btn-primary button is-hidden"
       data-action="load-more"
     >
-      <span
-        class="spinner-border spinner-border-sm spinner is-hidden"
-        role="status"
-        aria-hidden="true"
-      ></span>
-
       <span class="label">Load more</span>
     </button>
     <script type="module" src="./main.js"></script>
